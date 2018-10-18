@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Set the viewport width to device width for mobile -->
+  <meta name="viewport" content="width=device-width" />
+
+  <title>Welcome to Foundation</title>
+
+  <!-- Included CSS Files -->
+  <link rel="stylesheet" href="stylesheets/foundation.css">
+  <link rel="stylesheet" href="stylesheets/app.css">
+
+  <!--[if lt IE 9]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+  <![endif]-->
+
+  <script src="javascripts/modernizr.foundation.js"></script>
+
+  <!-- IE Fix for HTML5 Tags -->
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+
+	<div class="row">
+		<div class="twelve columns">
+		<p align="center"><h2>Java para Web!</h2></p>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="twelve columns">
+			<ul class="nav-bar">
+ 		 		<li class="active"><a href="#">Home</a></li>
+  				<li><a href="adiciona-filme.html">Adiciona Filme</a></li>
+  				<!--li><a href="#">Inspiration</a></li -->
+  				<!--li><a href="#">Contact Us</a></li-->
+			</ul>
+			
+		</div>
+	</div>
+		
+	<div class="row">
+		<div class="twelve columns">
+			<div class="row">
+				<div class="eight columns">
+				<h4>Formulário de criação</h4>
+						<form action="adicionaFilme">
+        Título: <input type="text" name="titulo" /><br />
+        Gênero: <input type="text" name="genero" /><br />
+        Duração (min): <input type="number" name="duracao" /><br />
+        IMDb: <input type="number" name="imdb" /><br />
+        Lançamento: <input type="text" name="lancamento" /><br />
+        <input type="submit" value="Gravar" />
+    </form>				
+				</div>
+		
+				<div class="four columns">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="twelve columns">
+		<hr />
+		
+		</div>
+	</div>
+</body>
