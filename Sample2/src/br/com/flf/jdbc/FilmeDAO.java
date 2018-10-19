@@ -1,8 +1,12 @@
 package br.com.flf.jdbc;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import com.mysql.jdbc.Connection;
@@ -11,6 +15,17 @@ import com.mysql.jdbc.Connection;
 import br.com.flf.models.Filme;
 
 public class FilmeDAO {
+	/**** Dados de criação da tabela
+	 * 
+ 	id BIGINT NOT NULL AUTO_INCREMENT,
+	titulo VARCHAR(400),
+	genero VARCHAR(200),
+	lancamento DATE,
+	duracao integer,
+	imdb real,
+	primary key (id)
+	 * 
+	 */
 	public void adiciona(Filme novo) throws Exception {
 		Conexao conx = new Conexao();
 		Connection conn = conx.abrir();       
@@ -37,7 +52,7 @@ public class FilmeDAO {
 		conx.close(conn);
 
 	}
-	
+
 	
 
 }
