@@ -1,9 +1,12 @@
 package br.com.flf.jdbc;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
+
 
 import br.com.flf.models.Filme;
 
@@ -34,5 +37,7 @@ public class FilmeDAO {
 		conx.close(conn);
 
 	}
+	
+	
 
 }
