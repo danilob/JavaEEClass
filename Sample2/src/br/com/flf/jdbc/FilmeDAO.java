@@ -1,5 +1,6 @@
 package br.com.flf.jdbc;
 
+import java.io.Console;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,17 +16,7 @@ import com.mysql.jdbc.Connection;
 import br.com.flf.models.Filme;
 
 public class FilmeDAO {
-	/**** Dados de criação da tabela
-	 * 
- 	id BIGINT NOT NULL AUTO_INCREMENT,
-	titulo VARCHAR(400),
-	genero VARCHAR(200),
-	lancamento DATE,
-	duracao integer,
-	imdb real,
-	primary key (id)
-	 * 
-	 */
+	
 	public void adiciona(Filme novo) throws Exception {
 		Conexao conx = new Conexao();
 		Connection conn = conx.abrir();       
@@ -53,6 +44,32 @@ public class FilmeDAO {
 
 	}
 
-	
+	public List<Filme> getFilmes() throws Exception {
+		Conexao conx = new Conexao();
+		Connection conn = conx.abrir();       
+		List<Filme> filmes = new ArrayList<>();
+		PreparedStatement stmt = conn.prepareStatement("select * from filme");
+		ResultSet rs = stmt.executeQuery();
+		while (rs.next()){
+			String titulo = rs.getString("titulo");
+			String genero = rs.getString("genero");
+			Calendar data = null;
+			//String lancamento = rs.getDate(columnIndex)("lancamento");
+			//Date date_lanc = (Date) new	 SimpleDateFormat("dd/mm/yyyy").parse(rs.getString("lancamento"));
+			//System.out.println(rs.getString("lancamento"));
+			data = Calendar.getInstance();
+			data.setTime(rs.getDate("lancamento"));
+			int duracao = rs.getInt("duracao");
+			float imdb = rs.getFloat("imdb");
+			long id = rs.getLong("id");
+			Filme row = new Filme(titulo,genero,data,duracao,imdb);
+			row.setId(id);
+			filmes.add(row);
+		}
+		
+		stmt.close();
+		conn.close();
+		return filmes;
+	}
 
 }

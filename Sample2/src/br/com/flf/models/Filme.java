@@ -12,7 +12,14 @@ public class Filme {
 	float IMDb;
 		
 	public Filme() {}
-	
+	public Filme(String titulo, String genero, Calendar lancamento, int duracao, float iMDb) {
+		super();
+		this.titulo = titulo;
+		this.genero = genero;
+		this.lancamento = lancamento;
+		this.duracao = duracao;
+		this.IMDb = iMDb;
+	}
 	public long getId() {
 		return Id;
 	}
