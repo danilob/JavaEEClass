@@ -1,14 +1,15 @@
 package br.com.flf.jdbc;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 
-import com.mysql.jdbc.Connection;
+
 
 public class Conexao {
-	private static final String USUARIO = "root";
-    private static final String SENHA = "root";
-    private static final String URL = "jdbc:mysql://localhost/Acervo";
-    private static final String DRIVER = "com.mysql.jdbc.Driver";
+	private static final String USUARIO = "postgres";
+    private static final String SENHA = "postgres";
+    private static final String URL = "jdbc:postgresql://localhost:5432/Acervo";
+    private static final String DRIVER = "org.postgresql.Driver";
     public Connection abrir() throws Exception {
         Class.forName(DRIVER);  // Registrar o driver
         // Capturar a conexão

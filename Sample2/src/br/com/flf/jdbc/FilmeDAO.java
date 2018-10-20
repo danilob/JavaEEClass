@@ -1,6 +1,7 @@
 package br.com.flf.jdbc;
 
 import java.io.Console;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,7 +11,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import com.mysql.jdbc.Connection;
+
 
 
 import br.com.flf.models.Filme;
