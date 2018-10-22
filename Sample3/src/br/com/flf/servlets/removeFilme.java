@@ -14,18 +14,17 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.flf.jdbc.FilmeDAO;
 import br.com.flf.models.Filme;
 
-
 /**
- * Servlet implementation class pesquisaFilme
+ * Servlet implementation class removeFilme
  */
-@WebServlet("/pesquisaFilme")
-public class pesquisaFilme extends HttpServlet {
+@WebServlet("/removeFilme")
+public class removeFilme extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public pesquisaFilme() {
+    public removeFilme() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,13 +34,15 @@ public class pesquisaFilme extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String pesquisa = request.getParameter("key");
+		Long id = Long.parseLong(request.getParameter("id"));
 		FilmeDAO dao = new FilmeDAO();
-		List<Filme> result = new ArrayList<Filme>();
-		result = dao.getPesquisa(pesquisa);
-		request.setAttribute("lista_req", result);
-		RequestDispatcher disp = request.getRequestDispatcher("pesquisa-filme.jsp");
+		try {
+			dao.delete(id);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		RequestDispatcher disp = request.getRequestDispatcher("listar-filme.jsp");
 		disp.forward(request, response);
 
 	}

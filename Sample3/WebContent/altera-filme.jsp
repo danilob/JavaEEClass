@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
@@ -54,14 +56,18 @@
 		<div class="twelve columns">
 			<div class="row">
 				<div class="eight columns">
-				<h4>Formulário de criação</h4>
-				<form action="adicionaFilme">
+					<jsp:useBean id="dao" class="br.com.flf.jdbc.FilmeDAO" />
+				    ${dao.getFilme(param.id).titulo}
+				<h4>Alteração de Filme</h4>
+				<form action="alteraFilme">
 				<!-- hide data form action="adicionaFilme" method="post" -->
-        Título: <input type="text" name="titulo" />
-        Gênero: <input type="text" name="genero" />
-        Duração (min): <input type="number" name="duracao" />
-        IMDb: <input type="number" name="imdb" step="any"/>
-        Lançamento: <input type="text" name="lancamento" />
+				        <input type="hidden" name="id" value="${dao.getFilme(param.id).id}"/>
+				
+        Título: <input type="text" name="titulo" value="${dao.getFilme(param.id).titulo}"/>
+        Gênero: <input type="text" name="genero" value="${dao.getFilme(param.id).genero}"/>
+        Duração (min): <input type="number" name="duracao" value="${dao.getFilme(param.id).duracao}"/>
+        IMDb: <input type="number" step="any" name="imdb" value="${dao.getFilme(param.id).IMDb}"/>
+        Lançamento: <input type="text" name="lancamento" value="${dao.getFilme(param.id).getLancamentoDate()}"/>
         <input type="submit" value="Gravar" />
     </form>				
 				</div>

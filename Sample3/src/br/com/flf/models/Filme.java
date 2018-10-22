@@ -1,5 +1,6 @@
 package br.com.flf.models;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -10,7 +11,7 @@ public class Filme {
 	Calendar lancamento;
 	int duracao;
 	float IMDb;
-		
+
 	public Filme() {}
 	public Filme(String titulo, String genero, Calendar lancamento, int duracao, float iMDb) {
 		super();
@@ -56,11 +57,18 @@ public class Filme {
 	public void setIMDb(float iMDb) {
 		IMDb = iMDb;
 	}
-	
+
+	public String getLancamentoDate() {
+		Calendar calendar = this.lancamento;
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		return dateFormat.format(calendar.getTime());
+
+	}
+
 	public static void main(String[] args) {
 
 
 	}
-	
+
 
 }
