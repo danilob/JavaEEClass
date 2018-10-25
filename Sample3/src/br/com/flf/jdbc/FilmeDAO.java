@@ -86,6 +86,7 @@ public class FilmeDAO {
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+		conx.close(conn);
 
 	}
 	

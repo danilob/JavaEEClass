@@ -26,3 +26,14 @@ public class Conexao {
 
 }
 /** Criação do banco de dados!**/
+/*
+create database Acervo
+create table filme (
+        id bigserial primary key,
+        titulo VARCHAR(400),
+        genero VARCHAR(200),
+        lancamento DATE,
+        duracao integer,
+        imdb real
+    );
+*/
